@@ -4,5 +4,5 @@ Title : Automatic Hyperparameter Tuning Method for Local Outlier Factor, with Ap
 This repository is an implementation of the algorithm presented in this paper. Thanks to the authors for sharing their ideas. Hope you find it helpful in your projects. 
 
 Check this video out for a demo of the tuning in action!
-[![Automatic LOF Tuning Demo](https://imgur.com/Io9GbXo)](https://youtu.be/kc1rCc_9Vms)
+[![Automatic LOF Tuning Demo](https://i.imgur.com/Io9GbXo.png)](https://youtu.be/kc1rCc_9Vms)
 <div align="center">Automatic LOF Tuning Demo</div>
