@@ -87,7 +87,7 @@ class LOF_AutoTuner(object):
         z_list = [c[2] for c in self.collector]
 
 
-        for i, v in tqdm.tqdm_notebook(enumerate(self.collector)):
+        for i, v in tqdm.tqdm(enumerate(self.collector)):
             Kopt, Topt, Z, contamination = v
             clf = LocalOutlierFactor(n_neighbors=Kopt, 
                                      contamination=contamination)
@@ -130,7 +130,7 @@ class LOF_AutoTuner(object):
     def run(self):
         self.collector = []
         #main op
-        for contamination in tqdm.tqdm_notebook(self.c_grid):
+        for contamination in tqdm.tqdm(self.c_grid):
             samps = int(contamination * self.n_samples)
             if samps < 2:
                 continue
