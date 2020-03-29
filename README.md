@@ -43,6 +43,7 @@ tuner.run()
 
 #TO VISUALISE 
 #save tuning animation
+tuner.visualise() #not required when running tuner.test()
 tuner.animation.save('./lof_tuner_demo.mp4', fps = 2)
 
 ```
