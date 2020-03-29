@@ -17,7 +17,7 @@ Check this video out for a demo of the tuning in action!
 Download lof_tuner.py to your working directory and import everything.
 
 ## Usage
-Initialize the tuner with your input 'data' or 'num_samples'. If no data is provided, then 'num_samples' of datapoints are sampled from a isotropic gaussian data distribution for running the test. 
+Initialize the tuner with your input 'data' or 'n_samples'. If no data is provided, then 'n_samples' of datapoints are sampled from a isotropic gaussian data distribution for running the test. 
 ```
 #TEST LOF MODEL TUNER 
 #-----------------
