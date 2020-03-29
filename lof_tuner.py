@@ -106,7 +106,7 @@ class LOF_AutoTuner(object):
             ax[0,0].scatter(c_lis, z_lis, c = 'b', label = 'Z', s = 5.)
             ax[0,0].text(0.05, 0.85, 'Z :' + str(Z), c = 'b', transform=ax[0,0].transAxes)  
 
-            ax[1,0].scatter(c_lis, k_lis, c = 'r', label = 'K-opt', s = 5.)
+            ax[1,0].scatter(c_lis, k_lis, c = 'r', label = 'K', s = 5.)
             ax[1,0].text(0.05, 0.85, 'K :' + str(Kopt), c = 'r', transform=ax[1,0].transAxes)     
 
             #set axes limits
