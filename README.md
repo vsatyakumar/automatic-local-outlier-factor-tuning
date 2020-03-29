@@ -32,15 +32,14 @@ tuner.test()
 
 #OR TUNE MODEL ON YOUR DATA 
 #-----------------
-tune on your custom dataset -> Input 'data', array-like, shape : (n_samples, n_features)
+#tune on your custom dataset -> Input 'data', array-like, shape : (n_samples, n_features)
 tuner = LOF_AutoTuner(data = data, k_max = 50, c_max = 0.1)
 
 #run tuner
 tuner.run()
 
-#-----------------
-
 #TO VISUALISE 
+#-----------------
 tuner.visualise() #not required when running tuner.test()
 
 #save tuning animation
