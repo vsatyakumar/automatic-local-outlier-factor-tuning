@@ -77,7 +77,7 @@ class LOF_AutoTuner(object):
         self.visualise()
         
     def visualise(self):
-        #set inlier threshold. i.e - Any point with score < thresh is considered an inlier.
+        #set inlier threshold. i.e - Any point with Log-LOF score < thresh is considered an inlier.
         thresh = 0.2
         
         fig, ax = plt.subplots(2,2,dpi= 100)
