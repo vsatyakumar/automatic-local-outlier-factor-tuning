@@ -67,14 +67,19 @@ class LOF_AutoTuner(object):
         self.c_grid = np.linspace(0.005, self.c_max, 100) #contamination
         
     def test(self):
-        r = np.random.randint(1,3)
+        #sample random gaussian data
         self.data = np.random.standard_normal(size=(self.n_samples,2)) 
+        
+        #run tuner
         self.run()
+        
+        #visualize tuning
         self.visualise()
         
     def visualise(self):
-        #LOF
+        #set inlier threshold. i.e - Any point with score < thresh is considered an inlier.
         thresh = 0.2
+        
         fig, ax = plt.subplots(2,2,dpi= 100)
         cam = Camera(fig)
         c_list = [c[3] for c in self.collector]
@@ -83,7 +88,7 @@ class LOF_AutoTuner(object):
 
 
         for i, v in tqdm.tqdm_notebook(enumerate(self.collector)):
-            Kopt, Topt, Z_cdf, contamination = v
+            Kopt, Topt, Z, contamination = v
             clf = LocalOutlierFactor(n_neighbors=Kopt, 
                                      contamination=contamination)
             clf.fit_predict(self.data)
@@ -99,7 +104,7 @@ class LOF_AutoTuner(object):
             z_lis = z_list[:i+1]
             
             ax[0,0].scatter(c_lis, z_lis, c = 'b', label = 'Z', s = 5.)
-            ax[0,0].text(0.05, 0.85, 'Z :' + str(Z_cdf), c = 'b', transform=ax[0,0].transAxes)  
+            ax[0,0].text(0.05, 0.85, 'Z :' + str(Z), c = 'b', transform=ax[0,0].transAxes)  
 
             ax[1,0].scatter(c_lis, k_lis, c = 'r', label = 'K-opt', s = 5.)
             ax[1,0].text(0.05, 0.85, 'K :' + str(Kopt), c = 'r', transform=ax[1,0].transAxes)     
@@ -130,7 +135,7 @@ class LOF_AutoTuner(object):
             if samps < 2:
                 continue
 
-            #inits
+            #init running metrics
             running_metrics = defaultdict(list)
             for k in self.k_grid:
                 clf = LocalOutlierFactor(n_neighbors=k, contamination=contamination)
@@ -161,32 +166,32 @@ class LOF_AutoTuner(object):
             mean_vc_out = np.mean(running_metrics['vck_out'])
             mean_vc_in = np.mean(running_metrics['vck_in'])
 
-            #student t-distribution ncpc - non-centrality parameter
+            #ncpc - non-centrality parameter
             ncpc = (mean_mc_out - mean_mc_in)/np.sqrt((self.eps + ((1/samps)*(mean_vc_out 
                                                                          + mean_vc_in))))
-            #student t-distribution d - degrees of freedom
+            #dfc - degrees of freedom
             dfc = (2*samps) - 2
 
             if dfc <= 0:
                 continue
 
-            Z = nct(dfc, ncpc) #non central t-distribution
+            Z = nct(dfc, ncpc) #non-central t-distribution
             Kopt = self.k_grid[largest_idx]
             Topt = running_metrics['tck'][largest_idx]
-            Z_cdf = Z.cdf(Topt)
-            self.collector.append([Kopt, Topt, Z_cdf, contamination])      
+            Z = Z.cdf(Topt)
+            self.collector.append([Kopt, Topt, Z, contamination])      
 
         max_cdf = 0.
         self.tuned_params = {}
         for v in self.collector:
-            Kopt, Topt, Z_cdf, contamination = v
-            if Z_cdf > max_cdf:
-                max_cdf = Z_cdf
+            Kopt, Topt, Z, contamination = v
+            if Z > max_cdf:
+                max_cdf = Z
 
-            if max_cdf == Z_cdf:
+            if max_cdf == Z:
                 self.tuned_params['k'] = Kopt
                 self.tuned_params['c'] = contamination
 
-        print("Tuned LOF Parameters : {}".format(self.tuned_params))
+        print("\nTuned LOF Parameters : {}".format(self.tuned_params))
         return
     
