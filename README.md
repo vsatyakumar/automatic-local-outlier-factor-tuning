@@ -1,5 +1,5 @@
 # Automatic-Local-Outlier-Factor-Tuning : 
-This repository is an implementation of the algorithm presented in the attached reference paper. Thanks to the authors for sharing their ideas. Hope you find this useful in your projects. 
+This repository is an implementation of the algorithm presented in the attached reference publication. Thanks to the authors for sharing their ideas. Hope you find this useful in your projects. 
 
 Check this video out for a demo of the tuning in action!
 [![Automatic LOF Tuning Demo](https://i.imgur.com/Io9GbXo.png)](https://youtu.be/kc1rCc_9Vms)
@@ -52,4 +52,4 @@ tuner.animation.save('./lof_tuner_demo.mp4', fps = 2)
 To ask questions or report issues, please open an issue on the [issues tracker](https://github.com/vsatyakumar/automatic-local-outlier-factor-tuning/issues).
 
 ## References
-Paper : Automatic Hyperparameter Tuning Method for Local Outlier Factor, with Applications to Anomaly Detection (https://arxiv.org/abs/1902.00567)
+Automatic Hyperparameter Tuning Method for Local Outlier Factor, with Applications to Anomaly Detection (https://arxiv.org/abs/1902.00567)
