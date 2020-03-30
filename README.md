@@ -1,5 +1,5 @@
 # Automatic-Local-Outlier-Factor-Tuning : 
-This repository is an implementation of the algorithm presented in the attached reference publication. Thanks to the authors for sharing their ideas. Hope you find this useful in your projects. 
+This repository is an implementation of the algorithm presented in the attached reference publication. Hope you find this useful in your projects. Thanks to the authors for sharing their ideas.
 
 Check this video out for a demo of the tuning in action!
 [![Automatic LOF Tuning Demo](https://i.imgur.com/Io9GbXo.png)](https://youtu.be/kc1rCc_9Vms)
