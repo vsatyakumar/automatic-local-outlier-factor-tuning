@@ -48,8 +48,8 @@ tuner.animation.save('./lof_tuner_demo.mp4', fps = 2)
 
 ```
 
-## Contact
-To ask questions or report issues, please open an issue on the [issues tracker](https://github.com/vsatyakumar/automatic-local-outlier-factor-tuning/issues).
-
 ## References
 Automatic Hyperparameter Tuning Method for Local Outlier Factor, with Applications to Anomaly Detection (https://arxiv.org/abs/1902.00567)
+
+## Contact
+To ask questions or report issues, please open an issue on the [issues tracker](https://github.com/vsatyakumar/automatic-local-outlier-factor-tuning/issues).
