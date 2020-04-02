@@ -62,9 +62,8 @@ class LOF_AutoTuner(object):
         self.c_max = c_max
         self.k_max = k_max
         self.c_steps = 100
-        self.k_steps = 100
         self.k_grid = np.arange(1,self.k_max + 1) #neighbors
-        self.c_grid = np.linspace(0.005, self.c_max, 100) #contamination
+        self.c_grid = np.linspace(0.005, self.c_max, self.c_steps) #contamination
         
     def test(self):
         #sample random gaussian data
