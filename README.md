@@ -18,7 +18,7 @@ Download lof_tuner.py to your working directory and import everything.
 Initialize the tuner with your input 'data' or 'n_samples'. If no data is provided, 'n_samples' of datapoints are sampled from an isotropic gaussian distribution for running the tuner test. 
 The optimal configuration of LOF hyperparameter 'K' - neighbors and 'C' - contamination factor is one that maximizes 'Z', and is indicated by the frame with grey circles drawn around the datapoints in the attached video) -
  
-```
+```python
 import lof_tuner
 from lof_tuner import LOF_AutoTuner
 
